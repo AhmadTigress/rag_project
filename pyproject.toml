@@ -1,0 +1,27 @@
+[project]
+name = "rag-project"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "ipykernel>=7.2.0",
+    "langchain>=1.3.0",
+    "langchain-community>=0.4.1",
+    "langchain-huggingface>=1.2.2",
+    "python-dotenv>=1.2.2",
+    "torch", # Explicitly list torch so uv map-routes it to the CPU wheel
+    "sentence-transformers>=5.5.0",
+    "faiss-cpu>=1.13.2",
+]
+
+# Configure uv to fetch from the PyTorch CPU index
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+# Route the torch package away from PyPI and directly to the CPU index
+[tool.uv.sources]
+torch = { index = "pytorch-cpu" }
+
