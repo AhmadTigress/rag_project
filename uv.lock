@@ -477,6 +477,22 @@ wheels = [
 ]
 
 [[package]]
+name = "fastapi"
+version = "0.137.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "annotated-doc" },
+    { name = "pydantic" },
+    { name = "starlette" },
+    { name = "typing-extensions" },
+    { name = "typing-inspection" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/d5/b1/e5b92c59d2c37817e77c1a8c2fc1f79cdcc04c68253e5406b43e3204cba7/fastapi-0.137.1.tar.gz", hash = "sha256:822360704230d9533d8d9475399613525968aa2f0b5bd2a3ccc9f18c88fd541c", size = 408293, upload-time = "2026-06-15T11:28:20.79Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/da/35/380b9a5922f4340e51c309cde09e5bd32e62f02302971bee30dc15aa0624/fastapi-0.137.1-py3-none-any.whl", hash = "sha256:64f6983c59e45c4b9fdc44e57cb8035c2451ee91ea8e8ec042aca37de7cf6b69", size = 121877, upload-time = "2026-06-15T11:28:19.523Z" },
+]
+
+[[package]]
 name = "filelock"
 version = "3.29.0"
 source = { registry = "https://pypi.org/simple" }
@@ -668,6 +684,23 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/ef/d0/079ebe12e4b1fc758857ce5be1a5e73f06870f2101e52611d1e71925ce54/greenlet-3.5.0-cp314-cp314t-musllinux_1_2_aarch64.whl", hash = "sha256:e5ddf316ced87539144621453c3aef229575825fe60c604e62bedc4003f372b2", size = 1614204, upload-time = "2026-04-27T12:53:32.618Z" },
     { url = "https://files.pythonhosted.org/packages/6d/89/6c2fb63df3596552d20e58fb4d96669243388cf680cff222758812c7bfaa/greenlet-3.5.0-cp314-cp314t-musllinux_1_2_x86_64.whl", hash = "sha256:4a448128607be0de65342dc9b31be7f948ef4cc0bc8832069350abefd310a8f2", size = 1675480, upload-time = "2026-04-27T12:25:34.168Z" },
     { url = "https://files.pythonhosted.org/packages/15/32/77ee8a6c1564fc345a491a4e85b3bf360e4cf26eac98c4532d2fdb96e01f/greenlet-3.5.0-cp314-cp314t-win_amd64.whl", hash = "sha256:d60097128cb0a1cab9ea541186ea13cd7b847b8449a7787c2e2350da0cb82d86", size = 245324, upload-time = "2026-04-27T12:24:40.295Z" },
+]
+
+[[package]]
+name = "groq"
+version = "0.37.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "anyio" },
+    { name = "distro" },
+    { name = "httpx" },
+    { name = "pydantic" },
+    { name = "sniffio" },
+    { name = "typing-extensions" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/e9/78/18948a9056e1509c87e10ab8316a90ecce87035fbd53342dffdf97f4de00/groq-0.37.1.tar.gz", hash = "sha256:7353d6dfb60834fd7aacbb86af106e2dc2aeaff6d0edd65fb2fd0f16bd39314c", size = 145289, upload-time = "2025-12-04T18:08:07.118Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/5f/d6/645a081750e43f858b7d09dce5d8e1e76cf11e7e4bdba81252e04f78963d/groq-0.37.1-py3-none-any.whl", hash = "sha256:b49f8c8898c55eaec9f71f1342f3fcacc9560d67a08ce5f35fbfb84e8dacd3da", size = 137494, upload-time = "2025-12-04T18:08:05.801Z" },
 ]
 
 [[package]]
@@ -1006,6 +1039,19 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/5e/4b/a1acdba3a86f861d379cb654f234d334c04a4c93178c8c7b0182ddeb9966/langchain_google_genai-4.2.5.tar.gz", hash = "sha256:2abab4be22699a9cc29948b2bf012946f51a0bbf10ab3a4a9a129047234829f8", size = 271850, upload-time = "2026-06-10T01:48:57.06Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/6a/82/3d4d3dc181ea1756f323dad4d5936239c2f404ea0acb5102316224280634/langchain_google_genai-4.2.5-py3-none-any.whl", hash = "sha256:289699ddb8e1076a76144f83e25e0086e4ce629b196fc103251f2a629e0756e5", size = 69404, upload-time = "2026-06-10T01:48:56.09Z" },
+]
+
+[[package]]
+name = "langchain-groq"
+version = "1.1.3"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "groq" },
+    { name = "langchain-core" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/6e/4d/64b5e57e9e43f009fcb1591f567f0095bcf38f0b705a2d63cec4c04e0d56/langchain_groq-1.1.3.tar.gz", hash = "sha256:890c099a55526bceafc3e696d123cb9d36464c6664a3ead34ae6e09e0d50caeb", size = 192228, upload-time = "2026-06-10T04:16:08.009Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/a7/5d/2f862bf5623d5c8ca6ed8a8917a7b1410e6d3595ee0bac12aff508556f76/langchain_groq-1.1.3-py3-none-any.whl", hash = "sha256:a69bb8212b7a699f407c033bf41ca526db8de68f438d51a41740a72bf6dc09bf", size = 20779, upload-time = "2026-06-10T04:16:06.754Z" },
 ]
 
 [[package]]
@@ -1968,28 +2014,36 @@ version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
     { name = "faiss-cpu" },
+    { name = "fastapi" },
     { name = "ipykernel" },
     { name = "langchain" },
     { name = "langchain-community" },
     { name = "langchain-google-genai" },
+    { name = "langchain-groq" },
     { name = "langchain-huggingface" },
     { name = "python-dotenv" },
     { name = "sentence-transformers" },
+    { name = "structlog" },
     { name = "torch", version = "2.12.0", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "sys_platform == 'darwin'" },
     { name = "torch", version = "2.12.0+cpu", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "sys_platform != 'darwin'" },
+    { name = "uvicorn" },
 ]
 
 [package.metadata]
 requires-dist = [
     { name = "faiss-cpu", specifier = ">=1.13.2" },
+    { name = "fastapi", specifier = ">=0.137.1" },
     { name = "ipykernel", specifier = ">=7.2.0" },
     { name = "langchain", specifier = ">=1.3.0" },
     { name = "langchain-community", specifier = ">=0.4.1" },
     { name = "langchain-google-genai", specifier = ">=4.2.5" },
+    { name = "langchain-groq", specifier = ">=1.1.3" },
     { name = "langchain-huggingface", specifier = ">=1.2.2" },
     { name = "python-dotenv", specifier = ">=1.2.2" },
     { name = "sentence-transformers", specifier = ">=5.5.0" },
+    { name = "structlog", specifier = ">=26.1.0" },
     { name = "torch", index = "https://download.pytorch.org/whl/cpu" },
+    { name = "uvicorn", specifier = ">=0.49.0" },
 ]
 
 [[package]]
@@ -2364,6 +2418,28 @@ wheels = [
 ]
 
 [[package]]
+name = "starlette"
+version = "1.3.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "anyio" },
+    { name = "typing-extensions", marker = "python_full_version < '3.13'" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/eb/e3/7c1dc7381d9f8ab7d854328ebfa884e62cb3f3d8549ddfd37c7814f42afa/starlette-1.3.1.tar.gz", hash = "sha256:05d0213193f2fbaae60e2ecb593b4add4262ad4e46536b54abe36f11a71724e0", size = 2703240, upload-time = "2026-06-12T09:23:11.602Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/ec/bb/2799cc2ede3ed41131f8975621e7213dfc7ef4acbbaadfa440f32500c370/starlette-1.3.1-py3-none-any.whl", hash = "sha256:c7372aae11c3c3f26a42df7bd626cec2f47d03483d261d369516a615a53714c6", size = 73632, upload-time = "2026-06-12T09:23:10.017Z" },
+]
+
+[[package]]
+name = "structlog"
+version = "26.1.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/5e/89/b4a0bcfdf4f71a3dea31379f095929613d7e4528a0996bca6aa964cd0dca/structlog-26.1.0.tar.gz", hash = "sha256:f63a716cbd1b1291cf7661de7794b455acfa4c43c5bcf1630e6ad5ddc1adb3b7", size = 1459881, upload-time = "2026-06-06T07:33:39.348Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/a9/18/489c97b834dfff9cf2fc2507cede4bcd4b11e67f84bc462acd1992496f86/structlog-26.1.0-py3-none-any.whl", hash = "sha256:e081a26d6c373e6d201eca24eede26d8ffab07f88f477822e679183428d3d91e", size = 73764, upload-time = "2026-06-06T07:33:38.046Z" },
+]
+
+[[package]]
 name = "sympy"
 version = "1.14.0"
 source = { registry = "https://pypi.org/simple" }
@@ -2678,6 +2754,19 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/27/8b/2eea5e55d8d2185527cc37e481a363b77ac893534bdda4b9e277cdd71aa1/uuid_utils-0.15.0-cp314-cp314t-win32.whl", hash = "sha256:30e7340f8b55f552a78d90eab2b2be6f68520c380215ddb7fb70a6d234ce154d", size = 168093, upload-time = "2026-05-11T12:06:33.548Z" },
     { url = "https://files.pythonhosted.org/packages/1e/e5/7524e94c316fc0194c3da1a91e51cce69722520e5fc499c4ece53007a967/uuid_utils-0.15.0-cp314-cp314t-win_amd64.whl", hash = "sha256:5ef6edbb10a4956755614e116aee4b558d75284b52dbedcf5f7505c518eb1011", size = 174063, upload-time = "2026-05-11T12:08:03.414Z" },
     { url = "https://files.pythonhosted.org/packages/d8/64/8be140712e3fa9d8406f0cb61876ce6d02f72067d4f9d31d1bf73e127c01/uuid_utils-0.15.0-cp314-cp314t-win_arm64.whl", hash = "sha256:b3f0e567b5e992b28a50f50e0aeba546a2e2d3e463590eb5543204cb5d0f40b3", size = 171358, upload-time = "2026-05-11T12:07:30.282Z" },
+]
+
+[[package]]
+name = "uvicorn"
+version = "0.49.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "click" },
+    { name = "h11" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/c4/1f/fa18009dea8469069cca78a4e877a008ab78f08b064bfc9ab891579077ff/uvicorn-0.49.0.tar.gz", hash = "sha256:ebf4271aa580d9de97f93192d4595176df6e91f9aae919ca73e4fc07df1e66a3", size = 91284, upload-time = "2026-06-03T22:01:30.448Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/88/fa/e1388bbcf24ef3274f45c0c1c7b501fd14971037c1b6ee23610553307497/uvicorn-0.49.0-py3-none-any.whl", hash = "sha256:ba3d14c3ee7e41c6c654c46c9eb489d33213cdd30aa1696eab1374337c13f68f", size = 71376, upload-time = "2026-06-03T22:01:29.037Z" },
 ]
 
 [[package]]
