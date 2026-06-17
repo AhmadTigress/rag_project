@@ -13,6 +13,7 @@ dependencies = [
     "torch", # Explicitly list torch so uv map-routes it to the CPU wheel
     "sentence-transformers>=5.5.0",
     "faiss-cpu>=1.13.2",
+    "langchain-google-genai>=4.2.5",
 ]
 
 # Configure uv to fetch from the PyTorch CPU index
