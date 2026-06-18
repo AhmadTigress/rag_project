@@ -1,0 +1,12 @@
+{"timestamp": "2026-06-18T18:48:34.519188Z", "level": "info", "event": "Running in LOCAL mode: .env loaded"}
+{"timestamp": "2026-06-18T18:48:34.519536Z", "level": "info", "event": "Loaded GROQ_API_KEY from individual env var"}
+{"timestamp": "2026-06-18T18:48:34.519699Z", "level": "info", "event": "Loaded GOOGLE_API_KEY from individual env var"}
+{"keys": {"GROQ_API_KEY": "gsk_QA...", "GOOGLE_API_KEY": "AQ.Ab8..."}, "timestamp": "2026-06-18T18:48:34.519836Z", "level": "info", "event": "API keys loaded"}
+{"config_keys": ["embedding_model", "retriever", "llm"], "timestamp": "2026-06-18T18:48:34.522636Z", "level": "info", "event": "YAML config loaded"}
+{"session_id": "session_20260618_194834_2aaf1d7f", "temp_dir": "data/session_20260618_194834_2aaf1d7f", "faiss_dir": "faiss_index/session_20260618_194834_2aaf1d7f", "sessionized": true, "timestamp": "2026-06-18T18:48:34.523127Z", "level": "info", "event": "ChatIngestor initialized"}
+{"uploaded": "/home/ahmad/Documents/projects/rag_project/data/The Goal.pdf", "saved_as": "data/session_20260618_194834_2aaf1d7f/2bb0e8d1.pdf", "timestamp": "2026-06-18T18:48:34.525498Z", "level": "info", "event": "File saved for ingestion"}
+{"count": 299, "timestamp": "2026-06-18T18:48:57.285420Z", "level": "info", "event": "Documents loaded"}
+{"chunks": 3604, "chunk_size": 200, "overlap": 20, "timestamp": "2026-06-18T18:48:57.564279Z", "level": "info", "event": "Documents split"}
+{"model": "all-MiniLM-L6-v2", "timestamp": "2026-06-18T18:48:57.564748Z", "level": "info", "event": "Loading Hugging Face embedding model locally"}
+{"error": "name 'HuggingFaceEmbeddings' is not defined", "timestamp": "2026-06-18T18:48:57.564978Z", "level": "error", "event": "Error loading embedding model"}
+{"error": "Error in [/home/ahmad/Documents/projects/rag_project/multi_doc_chat/utils/model_loader.py] at line [91] | Message: Failed to load embedding model\nTraceback:\nTraceback (most recent call last):\n  File \"/home/ahmad/Documents/projects/rag_project/multi_doc_chat/utils/model_loader.py\", line 91, in load_embeddings\n    return HuggingFaceEmbeddings(model_name=model_name)\n           ^^^^^^^^^^^^^^^^^^^^^\nNameError: name 'HuggingFaceEmbeddings' is not defined\n", "timestamp": "2026-06-18T18:48:57.568876Z", "level": "error", "event": "Failed to build retriever"}

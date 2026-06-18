@@ -1,0 +1,5 @@
+{"timestamp": "2026-06-18T12:36:02.025752Z", "level": "info", "event": "Running in LOCAL mode: .env loaded"}
+{"timestamp": "2026-06-18T12:36:02.026126Z", "level": "info", "event": "Loaded GROQ_API_KEY from individual env var"}
+{"timestamp": "2026-06-18T12:36:02.026313Z", "level": "info", "event": "Loaded GOOGLE_API_KEY from individual env var"}
+{"keys": {"GROQ_API_KEY": "gsk_QA...", "GOOGLE_API_KEY": "AQ.Ab8..."}, "timestamp": "2026-06-18T12:36:02.026523Z", "level": "info", "event": "API keys loaded"}
+{"error": "expected '<document start>', but found '<block mapping start>'\n  in \"/home/ahmad/Documents/projects/rag_project/multi_doc_chat/config/config.yaml\", line 5, column 1", "timestamp": "2026-06-18T12:36:02.028272Z", "level": "error", "event": "Failed to initialize ChatIngestor"}

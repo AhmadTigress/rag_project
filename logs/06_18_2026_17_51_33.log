@@ -1,0 +1,13 @@
+{"timestamp": "2026-06-18T16:51:34.190235Z", "level": "info", "event": "Running in LOCAL mode: .env loaded"}
+{"timestamp": "2026-06-18T16:51:34.190611Z", "level": "info", "event": "Loaded GROQ_API_KEY from individual env var"}
+{"timestamp": "2026-06-18T16:51:34.190824Z", "level": "info", "event": "Loaded GOOGLE_API_KEY from individual env var"}
+{"keys": {"GROQ_API_KEY": "gsk_QA...", "GOOGLE_API_KEY": "AQ.Ab8..."}, "timestamp": "2026-06-18T16:51:34.191010Z", "level": "info", "event": "API keys loaded"}
+{"config_keys": ["embedding_model", "retriever", "llm"], "timestamp": "2026-06-18T16:51:34.193851Z", "level": "info", "event": "YAML config loaded"}
+{"session_id": "session_20260618_175134_e42e661a", "temp_dir": "data/session_20260618_175134_e42e661a", "faiss_dir": "faiss_index/session_20260618_175134_e42e661a", "sessionized": true, "timestamp": "2026-06-18T16:51:34.194521Z", "level": "info", "event": "ChatIngestor initialized"}
+{"uploaded": "/home/ahmad/Documents/projects/rag_project/data/The Goal.pdf", "saved_as": "data/session_20260618_175134_e42e661a/94e0b63a.pdf", "timestamp": "2026-06-18T16:51:34.197681Z", "level": "info", "event": "File saved for ingestion"}
+{"count": 299, "timestamp": "2026-06-18T16:52:05.838249Z", "level": "info", "event": "Documents loaded"}
+{"chunks": 3604, "chunk_size": 200, "overlap": 20, "timestamp": "2026-06-18T16:52:06.188969Z", "level": "info", "event": "Documents split"}
+{"model": "embedding-001", "timestamp": "2026-06-18T16:52:06.189445Z", "level": "info", "event": "Loading embedding model"}
+HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/embedding-001:batchEmbedContents "HTTP/1.1 404 Not Found"
+HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/embedding-001:batchEmbedContents "HTTP/1.1 404 Not Found"
+{"error": "Error embedding content (NOT_FOUND): 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/embedding-001 is not found for API version v1beta, or is not supported for embedContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}", "timestamp": "2026-06-18T16:52:08.881009Z", "level": "error", "event": "Failed to build retriever"}

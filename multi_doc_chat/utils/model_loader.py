@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 from multi_doc_chat.utils.config_loader import load_config
 from langchain_google_genai import GoogleGenerativeAIEmbeddings, ChatGoogleGenerativeAI
 from langchain_groq import ChatGroq
+from langchain_huggingface import HuggingFaceEmbeddings  # <--- Clean, compiled at startup!
 from multi_doc_chat.logger import GLOBAL_LOGGER as log
 from multi_doc_chat.exception.custom_exception import DocumentPortalException
 
@@ -73,13 +74,27 @@ class ModelLoader:
 
     def load_embeddings(self):
         """
-        Load and return embedding model from Google Generative AI.
+        Load and return the configured embedding model based on provider settings.
         """
         try:
+            provider = self.config["embedding_model"].get("provider", "google").lower()
             model_name = self.config["embedding_model"]["model_name"]
-            log.info("Loading embedding model", model=model_name)
-            return GoogleGenerativeAIEmbeddings(model=model_name,
-                                                google_api_key=self.api_key_mgr.get("GOOGLE_API_KEY")) #type: ignore
+
+            if provider == "google":
+                log.info("Loading Google embedding model", model=model_name)
+                return GoogleGenerativeAIEmbeddings(
+                    model=model_name,
+                    google_api_key=self.api_key_mgr.get("GOOGLE_API_KEY") # type: ignore
+                )
+            
+            elif provider == "huggingface":
+                log.info("Loading Hugging Face embedding model locally", model=model_name)
+                return HuggingFaceEmbeddings(model_name=model_name)
+            
+            else:
+                log.error("Unsupported embedding provider", provider=provider)
+                raise ValueError(f"Unsupported embedding provider: {provider}")
+
         except Exception as e:
             log.error("Error loading embedding model", error=str(e))
             raise DocumentPortalException("Failed to load embedding model", sys)
