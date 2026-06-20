@@ -21,6 +21,7 @@ dependencies = [
     "pypdf>=6.13.3",
     "huggingface-hub>=1.14.0",
     "pandas>=3.0.3",
+    "langsmith>=0.8.4",
 ]
 
 # Configure uv to fetch from the PyTorch CPU index
