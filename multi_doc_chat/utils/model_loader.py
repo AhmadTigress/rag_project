@@ -102,19 +102,19 @@ class ModelLoader:
 
     def load_llm(self):
         """
-        Load Hugging Face as the primary LLM, with Groq and Google as automatic fallbacks
-        if the API key is absent or a network request fails (e.g., Rate Limits).
+        Load Hugging Face as the primary LLM API, with Groq and Google as automatic fallbacks
+        if the HF API key is absent or a network request fails (e.g., Rate Limits).
         """
-        llm_block = self.config["llm"]
+        llm_block = self.config.get("llm", {})
         fallbacks = []
         primary_llm = None
         
-        # 1. Initialize Groq (Fallback 1)
+        # 1. Initialize Groq (Fallback 1 / Alternative Primary)
         groq_conf = llm_block.get("groq", {})
         groq_llm = ChatGroq(
-            model=groq_conf.get("model_name", "llama3-8b-8192"),
+            model=groq_conf.get("model_name", "llama-3.1-8b-instant"),
             api_key=self.api_key_mgr.get("GROQ_API_KEY"), # type: ignore
-            temperature=groq_conf.get("temperature", 0.2),
+            temperature=groq_conf.get("temperature", 0.0),
         )
         
         # 2. Initialize Google (Fallback 2)
@@ -122,45 +122,45 @@ class ModelLoader:
         google_llm = ChatGoogleGenerativeAI(
             model=google_conf.get("model_name", "gemini-2.0-flash"),
             google_api_key=self.api_key_mgr.get("GOOGLE_API_KEY"), # type: ignore
-            temperature=google_conf.get("temperature", 0.2),
+            temperature=google_conf.get("temperature", 0.0),
             max_output_tokens=google_conf.get("max_output_tokens", 2048)
         )
         
-        # 3. Initialize Hugging Face (Primary)
+        # 3. Handle Hugging Face Authentication & Setup
         hf_token = os.getenv("HUGGINGFACEHUB_API_TOKEN")
         hf_conf = llm_block.get("huggingface")
         
         if hf_token and hf_conf:
             try:
                 from langchain_huggingface import HuggingFaceEndpoint, ChatHuggingFace
-                log.info("Loading Hugging Face API as Primary LLM")
+                log.info("Loading Hugging Face Inference API as Primary LLM")
                 
-                # Setup the remote endpoint
                 hf_endpoint = HuggingFaceEndpoint(
                     repo_id=hf_conf.get("model_name", "mistralai/Mistral-7B-Instruct-v0.2"),
                     temperature=hf_conf.get("temperature", 0.1),
                     max_new_tokens=hf_conf.get("max_output_tokens", 2048),
                     huggingfacehub_api_token=hf_token,
                 )
-                # Wrap it in ChatHuggingFace for Conversational RAG compatibility
+                # Wrap in conversational interface for LangChain graph compatibility
                 primary_llm = ChatHuggingFace(llm=hf_endpoint)
                 
-                # If HF fails during chat, try Groq, then Google
+                # If Hugging Face fails during query execution, fallback to Groq, then Gemini
                 fallbacks = [groq_llm, google_llm]
                 
             except Exception as e:
-                log.warning("Failed to initialize Hugging Face, falling back to Groq", error=str(e))
+                log.warning("Failed to compile Hugging Face client wrapper, falling back directly to Groq", error=str(e))
                 primary_llm = groq_llm
                 fallbacks = [google_llm]
         else:
-            log.warning("Hugging Face token or config absent. Using Groq as Primary LLM.")
+            log.warning("HUGGINGFACEHUB_API_TOKEN env var missing. Using Groq as Primary model.")
             primary_llm = groq_llm
             fallbacks = [google_llm]
 
-        # Wrap the primary model with the fallback chain
-        log.info("LLM configured with fallbacks", primary=primary_llm.__class__.__name__)
+        log.info("LLM graph orchestration initialized", primary=primary_llm.__class__.__name__)
+        
+        # Return primary model wrapped with fallback fail-safes
         return primary_llm.with_fallbacks(fallbacks)
-
+    
 if __name__ == "__main__":
     loader = ModelLoader()
 
