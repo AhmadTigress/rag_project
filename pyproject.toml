@@ -22,6 +22,8 @@ dependencies = [
     "huggingface-hub>=1.14.0",
     "pandas>=3.0.3",
     "langsmith>=0.8.4",
+    "ipywidgets>=8.1.8",
+    "python-multipart>=0.0.32",
 ]
 
 # Configure uv to fetch from the PyTorch CPU index
