@@ -19,6 +19,7 @@ dependencies = [
     "fastapi>=0.137.1",
     "uvicorn>=0.49.0",
     "pypdf>=6.13.3",
+    "huggingface-hub>=1.14.0",
 ]
 
 # Configure uv to fetch from the PyTorch CPU index

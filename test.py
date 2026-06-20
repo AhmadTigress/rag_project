@@ -13,7 +13,7 @@ load_dotenv()
 def test_document_ingestion_and_rag():
     try:
         test_files = [
-            "/home/ahmad/Documents/projects/rag_project/data/The Goal.pdf",
+            "/home/ahmad/Documents/projects/rag_project/data/Agentic AI.txt",
         ]
 
         uploaded_files = []
