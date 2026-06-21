@@ -74,7 +74,7 @@ def stub_model_loader(monkeypatch):
 
     class FakeApiKeyMgr:
         def __init__(self):
-            self.api_keys = {"GROQ_API_KEY": "x", "GOOGLE_API_KEY": "y", "HF_TOKEN", "z"}
+            self.api_keys = {"GROQ_API_KEY": "x", "GOOGLE_API_KEY": "y", "HF_TOKEN": "z"}
 
         def get(self, key: str) -> str:
             return self.api_keys[key]
