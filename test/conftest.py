@@ -10,6 +10,7 @@ import pytest
 os.environ.setdefault("PYTHONPATH", str(pathlib.Path(__file__).resolve().parents[1] / "multi_doc_chat"))
 os.environ.setdefault("GROQ_API_KEY", "dummy")
 os.environ.setdefault("GOOGLE_API_KEY", "dummy")
+os.environ.setdefault("HF_TOKEN", "dummy")
 os.environ.setdefault("LLM_PROVIDER", "google")
 
 from fastapi.testclient import TestClient
@@ -73,7 +74,7 @@ def stub_model_loader(monkeypatch):
 
     class FakeApiKeyMgr:
         def __init__(self):
-            self.api_keys = {"GROQ_API_KEY": "x", "GOOGLE_API_KEY": "y"}
+            self.api_keys = {"GROQ_API_KEY": "x", "GOOGLE_API_KEY": "y", "HF_TOKEN", "z"}
 
         def get(self, key: str) -> str:
             return self.api_keys[key]
