@@ -1,0 +1,17 @@
+HTTP Request: POST http://testserver/chat "HTTP/1.1 400 Bad Request"
+HTTP Request: POST http://testserver/chat "HTTP/1.1 400 Bad Request"
+HTTP Request: POST http://testserver/chat "HTTP/1.1 200 OK"
+HTTP Request: POST http://testserver/chat "HTTP/1.1 500 Internal Server Error"
+HTTP Request: POST http://testserver/upload "HTTP/1.1 200 OK"
+HTTP Request: POST http://testserver/upload "HTTP/1.1 422 Unprocessable Entity"
+HTTP Request: POST http://testserver/upload "HTTP/1.1 500 Internal Server Error"
+{"session_id": "session_20260621_125506_4fd2a3cc", "temp_dir": "data/session_20260621_125506_4fd2a3cc", "faiss_dir": "faiss_index/session_20260621_125506_4fd2a3cc", "sessionized": true, "timestamp": "2026-06-21T11:55:06.994870Z", "level": "info", "event": "ChatIngestor initialized"}
+{"session_id": "session_20260621_125506_9a18da1b", "temp_dir": "data/session_20260621_125506_9a18da1b", "faiss_dir": "faiss_index/session_20260621_125506_9a18da1b", "sessionized": true, "timestamp": "2026-06-21T11:55:06.999215Z", "level": "info", "event": "ChatIngestor initialized"}
+{"chunks": 3, "chunk_size": 500, "overlap": 100, "timestamp": "2026-06-21T11:55:07.001154Z", "level": "info", "event": "Documents split"}
+Loading faiss with AVX2 support.
+Successfully loaded faiss with AVX2 support.
+`embedding_function` is expected to be an Embeddings object, support for passing in a function will soon be removed.
+{"session_id": "s1", "timestamp": "2026-06-21T11:55:07.123441Z", "level": "info", "event": "LLM loaded successfully"}
+{"session_id": "s1", "timestamp": "2026-06-21T11:55:07.123584Z", "level": "info", "event": "ConversationalRAG initialized"}
+{"error": "Error in [<unknown>] at line [-1] | Message: RAG chain not initialized. Call load_retriever_from_faiss() before invoke().", "timestamp": "2026-06-21T11:55:07.123715Z", "level": "error", "event": "Failed to invoke ConversationalRAG"}
+{"error": "FAISS index directory not found: faiss_index/does_not_exist", "timestamp": "2026-06-21T11:55:07.124016Z", "level": "error", "event": "Failed to load retriever from FAISS"}
