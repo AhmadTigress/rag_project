@@ -1,3 +1,4 @@
+```txt
 rag_project/
 ├── .env                         # Local runtime environment configurations
 ├── .gitignore                   # Version control exclusions
@@ -73,3 +74,4 @@ rag_project/
             ├── file_io.py       # OS filesystem operations
             ├── logger.py        # Centralized system logger instance
             └── model_loader.py  # LLM/Embedding runtime orchestration
+```
