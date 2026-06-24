@@ -5,9 +5,6 @@ FROM python:3.12-slim
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
-# --- INTEGRATION: Set PyTorch Index URL ---
-ENV UV_INDEX_URL=https://download.pytorch.org/whl/cpu
-
 # Set workdir
 WORKDIR /app
 
@@ -20,21 +17,23 @@ ENV PATH="/root/.local/bin:$PATH"
 ENV UV_LINK_MODE=copy
 ENV PYTHONPATH="/app:/app/multi_doc_chat"
 
-# Copy dependency manifests for better layer caching
-COPY requirements.txt ./
+# --- INTEGRATION: Native uv lockfile installation ---
 
-# Install dependencies into the system interpreter using uv pip
-RUN uv pip install --system -r requirements.txt
+# 1. Copy your environment configuration files
+COPY pyproject.toml uv.lock ./
 
-# Copy project files
+# 2. Sync your production dependencies using the lockfile
+RUN uv sync --frozen --no-dev --compile-bytecode
+
+# 3. Copy the rest of your app code
 COPY . .
 
+# 4. Prepend the virtual environment's bin folder to PATH 
+# This ensures runtime commands use the synchronized environment packages
+ENV PATH="/app/.venv/bin:$PATH"
 
 # Expose port
 EXPOSE 8080
 
 # Run FastAPI with uvicorn
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8080", "--reload"]
-
-# Replace last CMD in prod
-#CMD ["uvicorn", "api.main:app", "--host", "0.0.0.0", "--port", "8080", "--workers", "4"]
