@@ -28,8 +28,8 @@
         ],
         "secrets": [
           {
-            "name": "apikeyliveclass",
-            "valueFrom": "arn:aws:secretsmanager:eu-north-1:452670589003:secret:apikeyliveclass-WMh6lJ"
+            "name": "ragapikey",
+            "valueFrom": "arn:aws:secretsmanager:eu-north-1:452670589003:secret:ragapikey-CTQEVY"
           }
   
         ],
