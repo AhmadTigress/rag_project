@@ -73,3 +73,4 @@ rag_project/
             ├── logger.py                # Centralized system logger instance
             └── model_loader.py          # LLM/Embedding runtime orchestration
 ```
+## HI
