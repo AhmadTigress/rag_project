@@ -1,3 +1,20 @@
+# Multi-Document Chat RAG System
+
+## Overview
+This repository contains a robust, production-ready Retrieval-Augmented Generation (RAG) system designed to ingest, process, and accurately query multiple documents simultaneously. The architecture leverages advanced semantic search, deterministic data parsing, and persistent memory to provide an enterprise-grade AI chatbot experience.
+
+The system is engineered for scalability and maintainability, featuring a decoupled modular structure, comprehensive CI/CD workflows, and containerized deployment options.
+
+## Features
+*   **Multi-Document Ingestion:** Dynamically load and process varied document types (PDFs, TXT) across distinct user sessions.
+*   **Optimized Retrieval Pipeline:** Utilizes FAISS for highly efficient, local vector storage and semantic similarity search.
+*   **Modular Architecture:** Clean separation of concerns across core logic, prompt engineering, data models (Pydantic), and utility functions.
+*   **Robust Data Validation:** Enforces strict deterministic outputs via Pydantic schemas.
+*   **CI/CD Integration:** Automated testing and deployment workflows managed via GitHub Actions and Jenkins.
+*   **Containerized Environments:** fully supported Docker configurations for consistent development and production environments.
+
+## Repository Architecture
+
 ```txt
 rag_project/
 ├── .github/
@@ -73,4 +90,71 @@ rag_project/
             ├── logger.py                # Centralized system logger instance
             └── model_loader.py          # LLM/Embedding runtime orchestration
 ```
-## HI
+
+# Getting Started
+
+## Prerequisites
+
+- Python 3.x (Refer to .python-version for specific runtime)
+
+- Docker & Docker Compose (for containerized execution)
+
+- uv or pip for dependency management
+
+
+## Installation
+
+  ## Clone the repository:
+```bash
+git clone https://github.com/AhmadTigress/rag_project
+cd rag_project
+```
+
+## Set up the environment:
+Ensure you define the required environment variables in the .env file (e.g., API keys, deployment environments).
+
+## Install dependencies:
+Using uv (recommended):
+```bash
+uv sync
+```
+
+Or using standard pip:
+```bash
+pip install -r requirements.txt
+```
+
+## Usage
+Running the Server
+
+To initialize the main application server, execute the runtime script:
+```bash
+python tests/runtime/main.py
+```
+
+## Prototyping and Exploration
+
+Navigate to the notebooks/ directory to utilize interactive Jupyter notebooks for:
+
+- data_ingestion.ipynb: Testing chunking and embedding strategies.
+
+- rag.ipynb: Experimenting with retrieval chains.
+
+- evaluations.ipynb: Running ground-truth checks against data/goldens.csv.
+  
+
+## Testing
+
+The project maintains a rigorous testing standard. Execute the test suite using pytest:
+```bash
+pytest tests/
+```
+
+The testing framework includes isolated unit tests for structural integrity and comprehensive integration tests for file ingestion and chat routing.
+
+## Deployment
+
+Deployment pipelines are pre-configured in the .github/workflow directory for AWS, alongside Docker and Jenkins configurations (Dockerfile.jenkins, docker-compose.jenkins.yml) to support continuous integration and continuous delivery (CI/CD) practices.
+
+## License
+MIT License
